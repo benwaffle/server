@@ -16,14 +16,14 @@ services:
       - ./traefik.toml:/traefik.toml
 
   static:
-    image: fnichol/uhttpd
+    image: nginx
     networks:
       - webgateway
     volumes:
-      - ./static:/www
+      - ./static:/usr/share/nginx/html
     labels:
-      - "traefik.backend=static"
-      - "traefik.frontend.rule=Host:static.iofel.me"
+      traefik.backend: static
+      traefik.frontend.rule: "Host: iofel.me; Path: /"
 
 networks:
   webgateway:
