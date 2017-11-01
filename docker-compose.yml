@@ -23,7 +23,7 @@ services:
       - ./static:/usr/share/nginx/html
     labels:
       traefik.backend: static
-      traefik.frontend.rule: "Host: iofel.me; Path: /"
+      traefik.frontend.rule: "Host: iofel.me"
 
 networks:
   webgateway:
