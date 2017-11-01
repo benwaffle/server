@@ -1,0 +1,30 @@
+debug = false
+checkNewVersion = false
+logLevel = "DEBUG"
+defaultEntryPoints = ["https", "http"]
+
+[web] # dashboard
+address = ":8080"
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+
+[acme]
+email = "iofelben@gmail.com"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+
+[[acme.domains]]
+main = "iofel.me"
+sans = ["www.iofel.me"]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "iofel.me"

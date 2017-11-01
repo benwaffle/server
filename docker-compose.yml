@@ -1,0 +1,30 @@
+# vim:sw=2 et ts=2
+
+version: '3'
+
+services:
+  proxy:
+    image: traefik
+    networks:
+      - webgateway
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.toml:/traefik.toml
+
+  static:
+    image: fnichol/uhttpd
+    networks:
+      - webgateway
+    volumes:
+      - ./static:/www
+    labels:
+      - "traefik.backend=static"
+      - "traefik.frontend.rule=Host:static.iofel.me"
+
+networks:
+  webgateway:
+    driver: bridge
