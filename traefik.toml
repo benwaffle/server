@@ -17,7 +17,7 @@ address = ":8080"
 
 [acme]
 email = "iofelben@gmail.com"
-storage = "acme.json"
+storage = "/etc/traefik/acme/acme.json"
 entryPoint = "https"
 onHostRule = true
 

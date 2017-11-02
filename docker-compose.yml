@@ -14,7 +14,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.toml:/traefik.toml
-      - ./acme.json:acme.json
+      - ./acme:/etc/traefik/acme
 
   static:
     image: nginx
