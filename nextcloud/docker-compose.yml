@@ -25,7 +25,7 @@ services:
     networks:
       - nextcloud
     labels:
-      traefik.enable: false
+      traefik.enable: "false"
     restart: unless-stopped
 
 volumes:
