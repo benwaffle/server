@@ -24,6 +24,8 @@ services:
       - db:/var/lib/postgresql/data
     networks:
       - nextcloud
+    labels:
+      traefik.enable: false
     restart: unless-stopped
 
 volumes:
