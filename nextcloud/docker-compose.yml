@@ -4,7 +4,7 @@ version: '3'
 
 services:
   nextcloud:
-    image: nextcloud
+    build: .
     links:
       - db
     volumes:
