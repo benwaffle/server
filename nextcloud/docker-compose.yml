@@ -16,7 +16,7 @@ services:
       traefik.frontend.rule: "Host: cloud.iofel.me"
     restart: unless-stopped
   db:
-    image: postgres:alpine
+    image: postgres:10.0-alpine
     environment:
       - POSTGRES_USER=nextcloud
       - POSTGRES_PASSWORD
