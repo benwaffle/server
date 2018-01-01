@@ -8,7 +8,7 @@ services:
     links:
       - db
     volumes:
-      - nextcloud:/var/www/html
+      - /mnt/nextcloud-vol/nextcloud:/var/www/html
     networks:
       - server_webgateway
       - nextcloud
@@ -21,16 +21,12 @@ services:
       - POSTGRES_USER=nextcloud
       - POSTGRES_PASSWORD
     volumes:
-      - db:/var/lib/postgresql/data
+      - /mnt/nextcloud-vol/postgres:/var/lib/postgresql/data
     networks:
       - nextcloud
     labels:
       traefik.enable: "false"
     restart: unless-stopped
-
-volumes:
-  db:
-  nextcloud:
 
 networks:
   server_webgateway:
