@@ -10,10 +10,10 @@ services:
     volumes:
       - /mnt/nextcloud-vol/nextcloud:/var/www/html
     networks:
+      - server_webgateway
       - nextcloud
     labels:
       traefik.frontend.rule: "Host: cloud.iofel.me"
-      traefik.docker.network: "nextcloud_nextcloud"
     restart: unless-stopped
   db:
     image: postgres:9-alpine
@@ -29,4 +29,6 @@ services:
     restart: unless-stopped
 
 networks:
+  server_webgateway:
+    external: true
   nextcloud:
