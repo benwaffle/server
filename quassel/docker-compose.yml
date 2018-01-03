@@ -1,0 +1,25 @@
+# vim:sw=2 et ts=2
+
+version: '3'
+
+services:
+  quassel:
+    image: linuxserver/quassel-core
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config
+    ports:
+      - 4242:4242
+    environment:
+      PGID: 1000
+      PUID: 1000
+    networks:
+      - quassel
+      - bridge
+  db:
+    image: postgres:10-alpine
+    networks:
+      - quassel
+
+networks:
+  quassel:
