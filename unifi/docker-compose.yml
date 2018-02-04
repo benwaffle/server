@@ -10,6 +10,11 @@ services:
     ports:
       - "3478:3478"
       - "9090:8080"
+    volumes:
+      - "~/unifi:/config"
+    environment:
+      - PUID=1000
+      - PGID=1000
     labels:
       traefik.frontend.rule: "Host: unifi.iofel.me"
       traefik.protocol: "https"
