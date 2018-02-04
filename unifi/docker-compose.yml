@@ -13,6 +13,7 @@ services:
     labels:
       traefik.frontend.rule: "Host: unifi.iofel.me"
       traefik.docker.network: "server_webgateway"
+      traefik.protocol: "https"
       traefik.port: "8443"
     restart: unless-stopped
 
