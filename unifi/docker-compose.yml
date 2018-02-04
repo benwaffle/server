@@ -6,7 +6,6 @@ services:
   unifi:
     image: linuxserver/unifi
     networks:
-      - bridge
       - server_webgateway
     ports:
       - "3478:3478"
