@@ -11,7 +11,7 @@ services:
       - "3478:3478"
       - "9090:8080"
     volumes:
-      - "~/unifi:/config"
+      - ./unifi:/config
     environment:
       - PUID=1000
       - PGID=1000
