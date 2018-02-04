@@ -9,7 +9,7 @@ services:
       - server_webgateway
     ports:
       - "3478:3478"
-      - "8080:8080"
+      - "9090:8080"
     labels:
       traefik.frontend.rule: "Host: unifi.iofel.me"
       traefik.docker.network: "server_webgateway"
