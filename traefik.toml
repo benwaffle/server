@@ -2,6 +2,7 @@ debug = false
 checkNewVersion = false
 logLevel = "DEBUG"
 defaultEntryPoints = ["https", "http"]
+InsecureSkipVerify = true
 
 [web] # dashboard
 address = ":8080"
