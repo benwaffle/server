@@ -29,3 +29,4 @@ sans = ["www.iofel.me", "cloud.iofel.me", "unifi.iofel.me"]
 [docker]
 endpoint = "unix:///var/run/docker.sock"
 domain = "iofel.me"
+exposedbydefault = false

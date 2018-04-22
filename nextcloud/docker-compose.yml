@@ -11,6 +11,7 @@ services:
       - server_webgateway
       - server_database
     labels:
+      traefik.enabled: true
       traefik.frontend.rule: "Host: cloud.iofel.me"
       traefik.docker.network: "server_webgateway"
     restart: unless-stopped
