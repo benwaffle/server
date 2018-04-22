@@ -16,7 +16,7 @@ services:
       - PUID=1000
       - PGID=1000
     labels:
-      traefik.enabled: true
+      traefik.enabled: "true"
       traefik.frontend.rule: "Host: unifi.iofel.me"
       traefik.protocol: "https"
       traefik.port: "8443"
