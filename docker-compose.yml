@@ -26,7 +26,7 @@ services:
       - ./static:/usr/share/nginx/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     labels:
-      traefik.enabled: "true"
+      traefik.enable: "true"
       traefik.backend: "static"
       traefik.frontend.rule: "Host: iofel.me"
     restart: unless-stopped
