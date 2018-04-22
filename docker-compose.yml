@@ -30,6 +30,21 @@ services:
       traefik.frontend.rule: "Host: iofel.me"
     restart: unless-stopped
 
+  postgres:
+    image: postgres:10-alpine
+    networks:
+      - database
+    environment:
+      - POSTGRES_USER=ben
+      - POSTGRES_PASSWORD
+    volumes:
+      - /mnt/nextcloud-vol/postgres2:/var/lib/postgresql/data
+      - /etc/passwd:/etc/passwd:ro
+    user: 1000:1000
+    restart: unless-stopped
+
 networks:
   webgateway:
+    driver: bridge
+  database:
     driver: bridge
