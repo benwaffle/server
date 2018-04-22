@@ -3,6 +3,7 @@
 version: '3'
 
 services:
+
   proxy:
     image: traefik
     networks:
@@ -15,6 +16,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.toml:/etc/traefik/traefik.toml
       - ./acme:/etc/traefik/acme
+    restart: unless-stopped
 
   static:
     image: nginx
@@ -26,6 +28,7 @@ services:
     labels:
       traefik.backend: static
       traefik.frontend.rule: "Host: iofel.me"
+    restart: unless-stopped
 
 networks:
   webgateway:
