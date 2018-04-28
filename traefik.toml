@@ -1,6 +1,6 @@
 debug = false
 checkNewVersion = false
-logLevel = "DEBUG"
+logLevel = "INFO"
 defaultEntryPoints = ["https", "http"]
 InsecureSkipVerify = true
 
