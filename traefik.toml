@@ -21,10 +21,11 @@ email = "iofelben@gmail.com"
 storage = "/etc/traefik/acme/acme.json"
 entryPoint = "https"
 onHostRule = true
-
-[[acme.domains]]
-main = "iofel.me"
-sans = ["www.iofel.me", "cloud.iofel.me", "unifi.iofel.me"]
+  [acme.httpChallenge]
+  entryPoint = "http"
+  [[acme.domains]]
+  main = "iofel.me"
+  sans = ["www.iofel.me", "cloud.iofel.me", "unifi.iofel.me"]
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
