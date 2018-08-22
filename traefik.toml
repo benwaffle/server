@@ -2,7 +2,7 @@ debug = false
 checkNewVersion = false
 logLevel = "INFO"
 defaultEntryPoints = ["https", "http"]
-InsecureSkipVerify = true
+InsecureSkipVerify = true # allow self-signed cert between traefik and ubiquti controller
 
 [web] # dashboard
 address = ":8080"
