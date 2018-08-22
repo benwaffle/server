@@ -8,6 +8,8 @@ services:
     image: traefik
     networks:
       - webgateway
+    environment:
+      - DO_AUTH_TOKEN
     ports:
       - "80:80"
       - "443:443"

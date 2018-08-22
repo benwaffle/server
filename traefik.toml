@@ -17,15 +17,15 @@ address = ":8080"
     [entryPoints.https.tls]
 
 [acme]
-email = "iofelben@gmail.com"
+email = "letsencrypt@iofel.me"
 storage = "/etc/traefik/acme/acme.json"
 entryPoint = "https"
 onHostRule = true
-  [acme.httpChallenge]
-  entryPoint = "http"
+  [acme.dnsChallenge]
+  provider = "digitalocean"
   [[acme.domains]]
-  main = "iofel.me"
-  sans = ["www.iofel.me", "cloud.iofel.me", "unifi.iofel.me"]
+  main = "*.iofel.me"
+  sans = ["iofel.me"]
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
