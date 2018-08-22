@@ -2,16 +2,18 @@ debug = false
 checkNewVersion = false
 logLevel = "INFO"
 defaultEntryPoints = ["https", "http"]
-InsecureSkipVerify = true # allow self-signed cert between traefik and ubiquti controller
+insecureSkipVerify = true # allow self-signed cert between traefik and ubiquti controller
 
-[web] # dashboard
-address = ":8080"
+[api]
+dashboard = true
 
 [entryPoints]
+
   [entryPoints.http]
   address = ":80"
     [entryPoints.http.redirect]
     entryPoint = "https"
+
   [entryPoints.https]
   address = ":443"
     [entryPoints.https.tls]
@@ -30,4 +32,4 @@ onHostRule = true
 [docker]
 endpoint = "unix:///var/run/docker.sock"
 domain = "iofel.me"
-exposedbydefault = false
+exposedByDefault = false
