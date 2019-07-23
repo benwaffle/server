@@ -4,7 +4,7 @@ version: '3'
 
 services:
   unifi:
-    image: linuxserver/unifi
+    image: linuxserver/unifi-controller
     networks:
       - server_webgateway
     ports:
