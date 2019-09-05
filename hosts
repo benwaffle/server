@@ -1,0 +1,2 @@
+[servers]
+167.71.101.136 ansible_user=deploy

@@ -1,0 +1,33 @@
+---
+- hosts: all
+  tasks:
+
+  - name: Make sure ansible can talk to docker
+    pip:
+      name:
+      - docker
+      - docker-compose
+
+  - docker_network:
+      name: webgateway
+
+  - docker_container:
+      name: traefik
+      recreate: yes
+      image: traefik
+      networks:
+        - webgateway
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./traefik.toml:/etc/traefik/traefik.toml
+        - ./acme:/etc/traefik/acme
+      labels:
+        traefik.enable: "true"
+        traefik.backend: "traefik"
+        traefik.port: "8080"
+        traefik.frontend.rule: "Host: traefik.iofel.me"
+        traefik.frontend.auth.basic: $HTTP_AUTH
+      restart: unless-stopped
