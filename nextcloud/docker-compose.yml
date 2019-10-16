@@ -21,7 +21,7 @@ services:
       - server_webgateway
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - nextcloud:/var/www/html:ro
+      - /mnt/nextcloud-vol/nextcloud:/var/www/html:ro
     labels:
       traefik.enable: "true"
       traefik.frontend.rule: "Host: cloud.iofel.me"
