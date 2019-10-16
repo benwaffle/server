@@ -14,6 +14,7 @@ services:
       traefik.enable: "true"
       traefik.frontend.rule: "Host: cloud.iofel.me"
       traefik.docker.network: "server_webgateway"
+      com.centurylinklabs.watchtower.enable: "false" # it's just going to fail because we build the image ourselves
     restart: unless-stopped
 
 networks:
