@@ -13,8 +13,7 @@ RUN set -ex; \
     docker-php-ext-install \
       bz2 \
       gmp \
-    ; \
-    apk del .build-deps
+    ;
 
 RUN mkdir -p \
     /var/log/supervisord \
