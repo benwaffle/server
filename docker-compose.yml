@@ -51,6 +51,20 @@ services:
     user: 1000:1000
     restart: unless-stopped
 
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_NOTIFICATIONS=email
+      - WATCHTOWER_NOTIFICATION_EMAIL_FROM=cloud@iofel.me
+      - WATCHTOWER_NOTIFICATION_EMAIL_TO=watchtower@iofel.me
+      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER=smtp.mailgun.org
+      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER=cloud@iofel.me
+      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD
+      - WATCHTOWER_NOTIFICATION_EMAIL_DELAY=2
+    command: --monitor-only
+
 networks:
   webgateway:
     driver: bridge
