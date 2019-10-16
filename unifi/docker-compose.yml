@@ -20,6 +20,7 @@ services:
       traefik.frontend.rule: "Host: unifi.iofel.me"
       traefik.protocol: "https"
       traefik.port: "8443"
+      com.centurylinklabs.watchtower.enable: "false"
     restart: unless-stopped
 
 networks:
