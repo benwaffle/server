@@ -63,7 +63,7 @@ services:
       - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER=cloud@iofel.me
       - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD
       - WATCHTOWER_NOTIFICATION_EMAIL_DELAY=2
-    command: --monitor-only --debug
+    command: --debug
 
 networks:
   webgateway:
