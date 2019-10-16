@@ -20,7 +20,7 @@ RUN mkdir -p \
     /var/run/supervisord \
 ;
 
-COPY supervisord.conf /etc/supervisor/supervisord.conf
+COPY supervisord.conf /etc/supervisord.conf
 
 # update nextcloud on startup - default entrypoint only checks for apache and php-fpm
 ENV NEXTCLOUD_UPDATE=1
