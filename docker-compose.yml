@@ -22,6 +22,7 @@ services:
       traefik.http.routers.traefik.rule: "Host(`traefik.iofel.me`)"
       traefik.http.routers.traefik.service: "api@internal"
       traefik.http.routers.traefik.middlewares: auth
+      traefik.http.routers.traefik.entrypoints: https
       traefik.http.middlewares.auth.basicauth.users: $HTTP_AUTH
     restart: unless-stopped
 
