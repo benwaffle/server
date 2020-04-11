@@ -25,6 +25,7 @@ services:
     labels:
       traefik.enable: "true"
       traefik.http.routers.nginx.rule: "Host(`cloud.iofel.me`)"
+      traefik.http.routers.nginx.entrypoints: https
       traefik.docker.network: "server_webgateway"
     restart: unless-stopped
 

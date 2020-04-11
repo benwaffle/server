@@ -36,6 +36,7 @@ services:
     labels:
       traefik.enable: "true"
       traefik.http.routers.static.rule: "Host(`iofel.me`)"
+      traefik.http.routers.static.entrypoints: https
     restart: unless-stopped
 
   postgres:
