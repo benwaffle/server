@@ -11,6 +11,7 @@ entryPoints:
       redirections:
         entryPoint:
           to: https
+          scheme: https
 
   https:
     address: :443
