@@ -18,8 +18,8 @@ services:
     labels:
       traefik.enable: "true"
       traefik.http.routers.unifi.rule: "Host(`unifi.iofel.me`)"
-      traefik.http.services.unifi-service.loadbalancer.server.port: "8443"
-      traefik.http.services.unifi-service.loadbalancer.server.scheme: "https"
+      traefik.http.services.unifi.loadbalancer.server.port: "8443"
+      traefik.http.services.unifi.loadbalancer.server.scheme: "https"
       com.centurylinklabs.watchtower.enable: "false"
     restart: unless-stopped
 
