@@ -31,6 +31,17 @@ services:
       - monitoring
       - server_webgateway
 
+  telegraf:
+    image: telegraf:1.14-alpine
+    restart: unless-stopped
+    depends_on:
+      - influxdb
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - monitoring
+
 networks:
   server_webgateway:
     external: true
