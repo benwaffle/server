@@ -10,8 +10,6 @@ services:
       - ./influxdb:/var/lib/influxdb
     environment:
       - INFLUXDB_DB=telegraf
-      - INFLUXDB_USER=telegraf
-      - INFLUXDB_USER_PASSWORD
       - INFLUXDB_REPORTING_DISABLED=true
     networks:
       - monitoring
