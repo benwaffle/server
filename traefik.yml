@@ -41,3 +41,9 @@ certificatesResolvers:
       storage: /etc/traefik/acme/acme.json
       dnsChallenge:
         provider: digitalocean
+
+metrics:
+  influxDB:
+    address: influxdb:8086
+    protocol: http
+    database: telegraf
