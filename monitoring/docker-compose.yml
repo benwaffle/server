@@ -1,0 +1,40 @@
+# vim:sw=2 et ts=2
+
+version: '3'
+
+services:
+  influxdb:
+    image: influxdb:1.8-alpine
+    restart: unless-stopped
+    volumes:
+      - ./influxdb:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=telegraf
+      - INFLUXDB_USER=telegraf
+      - INFLUXDB_USER_PASSWORD
+      - INFLUXDB_REPORTING_DISABLED=true
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:6.7.3
+    restart: unless-stopped
+    volumes:
+      - ./grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.grafana.rule: "Host(`grafana.iofel.me`)"
+      traefik.http.routers.static.entrypoints: https
+      traefik.docker.network: "server_webgateway"
+    networks:
+      - monitoring
+      - server_webgateway
+
+networks:
+  server_webgateway:
+    external: true
+  monitoring:
+    driver: bridge
