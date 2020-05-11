@@ -25,7 +25,7 @@ services:
     labels:
       traefik.enable: "true"
       traefik.http.routers.grafana.rule: "Host(`grafana.iofel.me`)"
-      traefik.http.routers.static.entrypoints: https
+      traefik.http.routers.grafana.entrypoints: https
       traefik.docker.network: "server_webgateway"
     networks:
       - monitoring
