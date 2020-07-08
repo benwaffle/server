@@ -22,6 +22,7 @@ entryPoints:
           - main: iofel.me
             sans:
               - "*.iofel.me"
+          - main: slu.gg
 
 providers:
   docker:
