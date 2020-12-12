@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  matrix:
+    image: matrixdotorg/synapse:latest
+    networks:
+      - webgateway
+      - database
+    environment:
+      - UID=1000
+      - GID=1000
+    volumes:
+      - ./matrix:/data
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.traefik.rule: "Host(`matrix.iofel.me`)"
+      traefik.http.routers.static.entrypoints: https
+      traefik.docker.network: server_webgateway
+    restart: unless-stopped
+
+networks:
+  webgateway:
+    driver: bridge
+  database:
+    driver: bridge
