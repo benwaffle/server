@@ -4,8 +4,8 @@ services:
   matrix:
     image: matrixdotorg/synapse:latest
     networks:
-      - webgateway
-      - database
+      - server_webgateway
+      - server_database
     environment:
       - UID=1000
       - GID=1000
@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
 
 networks:
-  webgateway:
+  server_webgateway:
     external: true
-  database:
+  server_database:
     external: true
