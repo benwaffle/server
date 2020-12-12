@@ -24,6 +24,14 @@ entryPoints:
               - "*.iofel.me"
           - main: slu.gg
 
+  synapse:
+    address: :8448
+    http:
+      tls:
+        certResolver: leresolver
+        domains:
+          - main: matrix.iofel.me
+
 providers:
   docker:
     endpoint: unix:///var/run/docker.sock
