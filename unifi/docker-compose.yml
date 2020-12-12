@@ -21,7 +21,6 @@ services:
       traefik.http.routers.unifi.entrypoints: https
       traefik.http.services.unifi.loadbalancer.server.port: "8443"
       traefik.http.services.unifi.loadbalancer.server.scheme: "https"
-      com.centurylinklabs.watchtower.enable: "false"
     restart: unless-stopped
 
 networks:
