@@ -15,6 +15,7 @@ services:
       traefik.enable: "true"
       traefik.http.routers.matrix.rule: "Host(`matrix.iofel.me`)"
       traefik.http.routers.matrix.entrypoints: https
+      traefik.http.services.matrix.loadbalancer.server.port: "8008"
       traefik.docker.network: "server_webgateway"
     restart: unless-stopped
 
