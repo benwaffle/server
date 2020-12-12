@@ -20,6 +20,6 @@ services:
 
 networks:
   webgateway:
-    driver: bridge
+    external: true
   database:
-    driver: bridge
+    external: true
