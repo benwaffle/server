@@ -4,7 +4,6 @@ RUN set -ex; \
     \
     apk add --no-cache \
       supervisor \
-      imagemagick \
       ffmpeg \
       bzip2-dev \
       gmp-dev \
