@@ -19,6 +19,12 @@ services:
       traefik.docker.network: "server_webgateway"
     restart: unless-stopped
 
+  mautrix-telegram:
+    image: dock.mau.dev/tulir/mautrix-telegram:latest
+    restart: unless-stopped
+    volumes:
+      - ./telegram:/data
+
 networks:
   server_webgateway:
     external: true
