@@ -32,6 +32,12 @@ services:
     volumes:
       - ./instagram:/data
 
+  mautrix-whatsapp:
+    image: dock.mau.dev/tulir/mautrix-whatsapp:latest
+    restart: unless-stopped
+    volumes:
+      - ./whatsapp:/data
+
 networks:
   server_webgateway:
     external: true
