@@ -26,6 +26,12 @@ services:
     volumes:
       - ./telegram:/data
 
+  mx-puppet-instagram:
+    image: sorunome/mx-puppet-instagram:latest
+    restart: unless-stopped
+    volumes:
+      - ./instagram:/data
+
 networks:
   server_webgateway:
     external: true
