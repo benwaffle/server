@@ -6,6 +6,7 @@ services:
     networks:
       - server_webgateway
       - server_database
+      - default
     environment:
       - UID=1000
       - GID=1000
