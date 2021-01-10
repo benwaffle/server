@@ -40,7 +40,10 @@ services:
 
   mautrix-instagram:
     image: dock.mau.dev/tulir/mautrix-instagram:latest
-    restart: unless-stopped
+    #restart: unless-stopped
+    networks:
+      - server_database
+      - default
     volumes:
       - ./instagram2:/data
 
