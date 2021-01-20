@@ -26,12 +26,6 @@ services:
     volumes:
       - ./telegram:/data
 
-  mx-puppet-instagram:
-    image: sorunome/mx-puppet-instagram:latest
-    restart: unless-stopped
-    volumes:
-      - ./instagram:/data
-
   mautrix-whatsapp:
     image: dock.mau.dev/tulir/mautrix-whatsapp:latest
     restart: unless-stopped
@@ -40,7 +34,7 @@ services:
 
   mautrix-instagram:
     image: dock.mau.dev/tulir/mautrix-instagram:latest
-    #restart: unless-stopped
+    restart: unless-stopped
     networks:
       - server_database
       - default
