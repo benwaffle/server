@@ -10,7 +10,13 @@ services:
     networks:
       - nextcloud
       - server_database
+      - server_webgateway
     labels:
+      traefik.enable: "true"
+      traefik.http.routers.notifypush.rule: "Host(`cloud.iofel.me`) && Path(`/push/`)"
+      traefik.http.routers.notifypush.entrypoints: https
+      traefik.http.services.notifypush.loadbalancer.server.port: 7867
+      traefik.docker.network: "server_webgateway"
       com.centurylinklabs.watchtower.enable: "false" # it's just going to fail because we build the image ourselves
     restart: unless-stopped
 
