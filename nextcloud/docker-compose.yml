@@ -29,6 +29,14 @@ services:
       traefik.docker.network: "server_webgateway"
     restart: unless-stopped
 
+  redis:
+    image: redis:alpine
+    networks:
+      - nextcloud
+    volumes:
+      - ./redis-data:/data
+    restart: unless-stopped
+
 networks:
   server_webgateway:
     external: true
