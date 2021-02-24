@@ -15,6 +15,9 @@ entryPoints:
 
   https:
     address: :443
+    forwardedHeaders:
+      trustedIPs:
+        - "172.16.0.0/12"
     http:
       tls:
         certResolver: leresolver
