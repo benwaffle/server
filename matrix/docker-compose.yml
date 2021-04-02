@@ -41,6 +41,12 @@ services:
     volumes:
       - ./instagram2:/data
 
+  mx-puppet-groupme:
+    image: benwaffle/mx-puppet-groupme:latest
+    restart: unless-stopped
+    volumes:
+      - ./groupme:/data
+
 networks:
   server_webgateway:
     external: true
